@@ -130,10 +130,9 @@ public class EstimateController {
     @PostMapping(value = "result", params = "calculation")
     String calculation(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
         if (result.hasErrors()) {
-
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
-            return "confirm";
+            return "input";//変更(confirmからinputへ)
         }
 
         //料金の計算を行う。
@@ -162,7 +161,7 @@ public class EstimateController {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
-            return "confirm";
+            return "input";//変更(confirmからinputへ)
         }
 
         UserOrderDto dto = new UserOrderDto();
