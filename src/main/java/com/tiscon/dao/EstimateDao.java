@@ -104,7 +104,7 @@ public class EstimateDao {
         try {
             distance = parameterJdbcTemplate.queryForObject(sql, new BeanPropertySqlParameterSource(prefectureDistance), double.class);
         } catch (IncorrectResultSizeDataAccessException e) {
-            distance = 0;
+            distance = 10;
         }
         return distance;
     }
