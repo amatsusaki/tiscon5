@@ -70,9 +70,23 @@
         <legend>荷物情報</legend>
         <div class="form-group">
           <label for="box">段ボールの個数
-            <font color="FF0000"><li th:each="err : ${#fields.errors('box')}" th:text="${err}"></li></font>
+         <!--   <font color="FF0000"><li th:each="err : ${#fields.errors('box')}" th:text="${err}"></li></font> -->
           </label>
-          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10" placeholder="10"/>
+          <select id="box" name="box" class="form-control" th:field="*{box}">>
+            <option value="15">15箱 (1人分)</option>
+            <option value="30">30箱 (2人分)</option>
+            <option value="50">50箱 (3人分)</option>
+            <option value="80">80箱 (4人分)</option>
+            <option value="100">100箱 (5人分)</option>
+          </select>
+          <!-- <p>
+            <input type="radio" id="box" name="box" value="15"> 15箱 (1人分) <br>
+            <input type="radio" id="box" name="box" value="30"> 30箱 (2人分) <br>
+            <input type="radio" id="box" name="box" value="50"> 50箱 (3人分) <br>
+            <input type="radio" id="box" name="box" value="80"> 80箱 (4人分) <br>
+            <input type="radio" id="box" name="box" value="100"> 100箱 (5人分)
+          </p> -->
+          <!-- <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10" placeholder="10"/> -->
         </div>
         <div class="form-group">
           <label for="bed">ベッドの個数
