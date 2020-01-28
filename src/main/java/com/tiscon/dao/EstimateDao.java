@@ -119,6 +119,9 @@ public class EstimateDao {
         String sql = "SELECT BOX FROM PACKAGE_BOX WHERE PACKAGE_ID = :packageId";
 
         SqlParameterSource paramSource = new MapSqlParameterSource("packageId", packageId);
+
+        int box = parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
+
         return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
     }
 
@@ -132,6 +135,9 @@ public class EstimateDao {
         String sql = "SELECT PRICE FROM TRUCK_CAPACITY WHERE MAX_BOX >= :boxNum ORDER BY PRICE LIMIT 1";
 
         SqlParameterSource paramSource = new MapSqlParameterSource("boxNum", boxNum);
+        int price =parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
+
+
         return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
     }
 
